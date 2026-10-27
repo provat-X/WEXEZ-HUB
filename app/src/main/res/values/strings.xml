@@ -710,6 +710,8 @@
     <string name="playback_settings">Playback Settings</string>
     <string name="lyrics_editor_title">Lyrics Editor</string>
     <string name="lyrics_editor_short">Editor</string>
+    <string name="lyrics_add_manually">Add lyrics</string>
+    <string name="lyrics_manual_add_hint">Can\'t find the lyrics? Add them yourself by typing or pasting them in the editor.</string>
     <string name="lyrics_settings_short">Settings</string>
 <string name="song_info_title">Song Information</string>
     <string name="rhythm_stats">Rhythm Stats</string>
