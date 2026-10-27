@@ -7,8 +7,10 @@
   <img src="assets/icon_full.png" alt="Rhythm Music Player" width="220" style="border-radius: 32px; margin: 20px 0; box-shadow: 0 8px 24px rgba(0,0,0,0.2);">
 </picture>
 
-# Project Rhythm
-**Your Music, Your Rhythm.**
+# WEXE HUB
+**Your music. Your world.**
+
+WEXE HUB is a personalized Android music-player fork built on [Rhythm](https://github.com/cromaguy/Rhythm). This project keeps the upstream project’s license and attribution while adding WEXE HUB branding and a refreshed home experience. Local playback, library browsing, playlists, lyrics support, and equalizer functionality remain part of the upstream codebase; each feature should be verified on-device after changes.
 
 <a href="https://trendshift.io/repositories/15217" target="_blank"><img src="https://trendshift.io/api/badge/repositories/15217" alt="cromaguy%2FRhythm | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 
