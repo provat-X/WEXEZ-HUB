@@ -953,6 +953,13 @@ fun FullScreenLyricsView(
                                         color = textPrimaryColor,
                                         textAlign = TextAlign.Center
                                     )
+                                    Spacer(modifier = Modifier.height(8.dp))
+                                    Text(
+                                        text = stringResource(R.string.lyrics_manual_add_hint),
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = textSecondaryColor,
+                                        textAlign = TextAlign.Center
+                                    )
                                     Spacer(modifier = Modifier.height(16.dp))
                                     RhythmGroupedButton(
                                         size = RhythmButtonSize.Small
