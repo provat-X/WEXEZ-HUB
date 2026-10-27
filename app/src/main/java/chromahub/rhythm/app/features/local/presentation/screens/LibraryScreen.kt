@@ -1010,19 +1010,33 @@ fun LibraryScreen(
                 title = {
                     val collapsedFraction = scrollBehavior.state.collapsedFraction
                     val fontSize = (24 + (32 - 24) * (1 - collapsedFraction)).sp
+                    val libraryTitle = if (isStreamingMode && streamingServiceConnected && streamingServiceName.isNotBlank()) {
+                        "$streamingServiceName ${context.getString(R.string.library_title)}"
+                    } else {
+                        context.getString(R.string.library_title)
+                    }
 
-                    Text(
-                        text = if (isStreamingMode && streamingServiceConnected && streamingServiceName.isNotBlank()) {
-                            "$streamingServiceName ${context.getString(R.string.library_title)}"
-                        } else {
-                            context.getString(R.string.library_title)
-                        },
-                        style = MaterialTheme.typography.headlineLarge.copy(
+                    Column(
+                        modifier = Modifier.padding(start = 14.dp),
+                        verticalArrangement = Arrangement.spacedBy(1.dp)
+                    ) {
+                        Text(
+                            text = "WEXE HUB",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.primary,
                             fontWeight = FontWeight.Bold,
-                            fontSize = fontSize
-                        ),
-                        modifier = Modifier.padding(start = 14.dp)
-                    )
+                            letterSpacing = 2.sp,
+                            maxLines = 1
+                        )
+                        Text(
+                            text = libraryTitle,
+                            style = MaterialTheme.typography.headlineLarge.copy(
+                                fontWeight = FontWeight.Bold,
+                                fontSize = fontSize
+                            ),
+                            maxLines = 1
+                        )
+                    }
                 },
                 actions = {
                     val currentTabId = visibleTabIds.getOrNull(selectedTabIndex)
