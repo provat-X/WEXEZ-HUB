@@ -1358,6 +1358,89 @@ private fun StreamingHomeWelcomeContent(
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
+private fun WexeHubHeroCard(
+    songCount: Int,
+    albumCount: Int,
+    artistCount: Int,
+    onSearchClick: () -> Unit,
+    onPlayAll: () -> Unit
+) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 20.dp)
+            .clip(RoundedCornerShape(30.dp))
+            .background(
+                Brush.linearGradient(
+                    colors = listOf(
+                        Color(0xFF17152D),
+                        Color(0xFF45234F),
+                        Color(0xFF9E315F)
+                    )
+                )
+            )
+            .border(
+                width = 1.dp,
+                color = Color.White.copy(alpha = 0.16f),
+                shape = RoundedCornerShape(30.dp)
+            )
+            .padding(22.dp)
+    ) {
+        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Text(
+                text = "W E X E   H U B",
+                color = Color(0xFFFFC7E7),
+                style = MaterialTheme.typography.labelLarge,
+                fontWeight = FontWeight.Bold,
+                letterSpacing = 2.sp
+            )
+            Text(
+                text = "Your music.\nYour world.",
+                color = Color.White,
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.Bold,
+                lineHeight = 36.sp
+            )
+            Text(
+                text = "A home for every track, mood and moment.",
+                color = Color.White.copy(alpha = 0.82f),
+                style = MaterialTheme.typography.bodyMedium
+            )
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(10.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Button(
+                    onClick = onPlayAll,
+                    enabled = songCount > 0,
+                    shape = RoundedCornerShape(18.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color.White,
+                        contentColor = Color(0xFF28172F)
+                    )
+                ) {
+                    Text("Play library", fontWeight = FontWeight.SemiBold)
+                }
+                OutlinedButton(
+                    onClick = onSearchClick,
+                    shape = RoundedCornerShape(18.dp),
+                    border = BorderStroke(1.dp, Color.White.copy(alpha = 0.62f)),
+                    colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.White)
+                ) {
+                    Text("Find music", fontWeight = FontWeight.SemiBold)
+                }
+            }
+            Spacer(modifier = Modifier.height(2.dp))
+            Row(horizontalArrangement = Arrangement.spacedBy(18.dp)) {
+                Text("$songCount tracks", color = Color.White.copy(alpha = 0.88f), style = MaterialTheme.typography.labelMedium)
+                Text("$albumCount albums", color = Color.White.copy(alpha = 0.88f), style = MaterialTheme.typography.labelMedium)
+                Text("$artistCount artists", color = Color.White.copy(alpha = 0.88f), style = MaterialTheme.typography.labelMedium)
+            }
+        }
+    }
+}
+
+@Composable
 private fun ModernScrollableContent(
     modifier: Modifier = Modifier,
     featuredContent: List<Album>,
@@ -1570,6 +1653,20 @@ private fun ModernScrollableContent(
             verticalArrangement = Arrangement.spacedBy(sectionSpacing),
             contentPadding = PaddingValues(bottom = 24.dp + LocalMiniPlayerPadding.current.calculateBottomPadding())
         ) {
+        item(key = "wexe_hub_brand_hero") {
+            WexeHubHeroCard(
+                songCount = songs.size,
+                albumCount = albums.size,
+                artistCount = availableArtists.size,
+                onSearchClick = onSearchClick,
+                onPlayAll = {
+                    if (songs.isNotEmpty()) {
+                        musicViewModel.playSongs(songs)
+                    }
+                }
+            )
+        }
+
         @Composable
         fun RenderLocalSection(sectionId: String) {
             when (sectionId) {
