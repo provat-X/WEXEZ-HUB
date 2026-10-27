@@ -1,81 +1,91 @@
+
 name: Android CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   check:
+    name: Check and Lint
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-java@v6
+      - name: Checkout source
+        uses: actions/checkout@v7
+
+      - name: Set up Java
+        uses: actions/setup-java@v6
         with:
-          java-version: 17
-          distribution: 'zulu'
+          java-version: "17"
+          distribution: zulu
           cache: gradle
 
-      - name: Grant execute permission for gradlew
+      - name: Grant Gradle permission
         run: chmod +x gradlew
 
       - name: Run Lint
         run: ./gradlew lint
-      
-      - name: Upload lint results
+
+      - name: Upload lint report
         if: always()
         uses: actions/upload-artifact@v7
         with:
           name: lint-results
           path: app/build/reports/lint-results*.html
+          if-no-files-found: ignore
           retention-days: 7
 
   build:
+    name: Build Android APK
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v7
-    - uses: actions/setup-java@v6
-      with:
-        java-version: 17
-        distribution: 'zulu'
-        cache: gradle
+      - name: Checkout source
+        uses: actions/checkout@v7
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      - name: Set up Java
+        uses: actions/setup-java@v6
+        with:
+          java-version: "17"
+          distribution: zulu
+          cache: gradle
 
-    - name: Create private.properties for build
-      env:
-        PRIVATE_PROPERTIES: ${{ secrets.PRIVATE_PROPERTIES }}
-      run: |
-        if [ -n "$PRIVATE_PROPERTIES" ]; then
-          printf '%s' "$PRIVATE_PROPERTIES" | base64 -di > ./private.properties
-        else
-          touch ./private.properties
-        fi
+      - name: Grant Gradle permission
+        run: chmod +x gradlew
 
-    - name: Build with Gradle (GitHub flavor only)
-      env:
-        APPLE_MUSIC_FALLBACK_TOKEN: ${{ secrets.APPLE_MUSIC_FALLBACK_TOKEN }}
-      run: ./gradlew assembleGithubRelease assembleGithubDebug
+      - name: Prepare private properties
+        env:
+          PRIVATE_PROPERTIES: ${{ secrets.PRIVATE_PROPERTIES }}
+        run: |
+          if [ -n "$PRIVATE_PROPERTIES" ]; then
+            printf '%s' "$PRIVATE_PROPERTIES" | base64 -di > private.properties
+          else
+            touch private.properties
+          fi
 
-    - name: Generate build info
-      if: github.event_name == 'pull_request'
-      run: |
-        echo "Build completed at: $(date)" > build_info.txt
-        echo "Commit: ${{ github.sha }}" >> build_info.txt
-        echo "Branch: ${{ github.head_ref }}" >> build_info.txt
+      - name: Build Debug and Release APK
+        env:
+          APPLE_MUSIC_FALLBACK_TOKEN: ${{ secrets.APPLE_MUSIC_FALLBACK_TOKEN }}
+        run: ./gradlew --no-daemon assembleGithubDebug assembleGithubRelease
 
-    - name: Upload PR artifacts
-      if: github.event_name == 'pull_request'
-      uses: actions/upload-artifact@v7
-      with:
-        name: rhythm-pr-${{ github.event.pull_request.number }}
-        path: |
-          app/build/outputs/apk/github/release/*.apk
-          app/build/outputs/apk/github/debug/*.apk
-          build_info.txt
-        retention-days: 14
+      - name: Upload WEXE HUB APKs
+        if: success()
+        uses: actions/upload-artifact@v7
+        with:
+          name: WEXE-HUB-APK
+          path: |
+            app/build/outputs/apk/github/debug/*.apk
+            app/build/outputs/apk/github/release/*.apk
+          if-no-files-found: error
+          retention-days: 14
+          
