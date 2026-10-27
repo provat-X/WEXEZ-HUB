@@ -148,7 +148,7 @@
 <string name="operation_exporting_playlists">Backing up your custom playlists…</string>
     <string name="operation_exporting_playlists_location">Backing up playlists to storage…</string>
     <string name="operation_importing_playlist">Importing playlist file…</string>
-    <string name="notification_operations_channel_name">Rhythm Library Sync</string>
+    <string name="notification_operations_channel_name">WEXE HUB Library Sync</string>
     <string name="notification_operations_channel_desc">Progress notifications for library scanning, indexing, and playlist backups</string>
     <string name="notification_media_scan_title">Library Scan &amp; Indexing</string>
     <string name="notification_media_scan_stage_songs">Scanning storage for audio files…</string>
@@ -178,19 +178,19 @@
         <item quantity="other">Successfully imported \"%1$s\" (%2$d tracks).</item>
     </plurals>
     <string name="notification_playlist_import_failed">Playlist import failed. Verify the file format.</string>
-    <string name="notification_updater_channel_name">Rhythm System Updates</string>
+    <string name="notification_updater_channel_name">WEXE HUB System Updates</string>
     <string name="notification_updater_channel_desc">Download progress and release alerts for app updates</string>
-    <string name="notification_updater_title">Rhythm Software Update</string>
+    <string name="notification_updater_title">WEXE HUB Software Update</string>
     <string name="notification_updater_downloading">Downloading update: %1$d%%</string>
     <string name="notification_updater_download_complete">Update ready to install. Tap to proceed.</string>
     <string name="notification_updater_available_title">New Update Available</string>
-    <string name="notification_updater_available_text">A new version of Rhythm is available.</string>
-    <string name="notification_sleep_timer_channel_name">Rhythm Sleep Assistant</string>
+    <string name="notification_updater_available_text">A new version of WEXE HUB is available.</string>
+    <string name="notification_sleep_timer_channel_name">WEXE HUB Sleep Assistant</string>
     <string name="notification_sleep_timer_channel_desc">Countdowns and status alerts for active sleep timers</string>
     <string name="notification_sleep_timer_title">Sleep Timer Active</string>
     <string name="notification_sleep_timer_pause_in">Pausing playback in %1$s</string>
     <string name="notification_sleep_timer_stop_in">Stopping playback in %1$s</string>
-<string name="notification_streaming_channel_name">Rhythm Cloud Services</string>
+<string name="notification_streaming_channel_name">WEXE HUB Cloud Services</string>
     <string name="notification_streaming_channel_desc">Connection status and sync progress for online music services</string>
 <string name="notification_streaming_auth_title">Cloud Service Connected</string>
     <string name="notification_streaming_auth_connected">%1$s connected. Library syncing in background.</string>
@@ -903,7 +903,7 @@
     <string name="cd_reorder_chips">Reorder chips</string>
     <string name="cd_search">Search</string>
     <string name="cd_view_all">View all</string>
-    <string name="cd_rhythm_splash">Rhythm</string>
+    <string name="cd_rhythm_splash">WEXE HUB</string>
     <string name="cd_remove_from_playlist">Remove from playlist</string>
     <string name="cd_change_language">Change Language</string>
     <string name="cd_open_settings">Open</string>
@@ -952,12 +952,12 @@
     <string name="bottomsheet_irreversible">Irreversible Changes</string>
     <string name="bottomsheet_proceed">Proceed</string>
 
-<string name="service_app_updates">Rhythm Updater</string>
-    <string name="service_update_status">Rhythm Updater Status</string>
+<string name="service_app_updates">WEXE HUB Updater</string>
+    <string name="service_update_status">WEXE HUB Updater Status</string>
     <string name="service_rhythm_pulse">Rhythm Tips</string>
     <string name="service_rhythm_guard_alerts">Rhythm Guard Alerts</string>
     <string name="service_rhythm_guard_timers">Rhythm Guard Timers</string>
-    <string name="service_rhythm_music">Rhythm Music</string>
+    <string name="service_rhythm_music">WEXE HUB Music</string>
     <string name="service_update_status_desc">Status results for background update checks</string>
     <string name="service_rhythm_pulse_desc">Friendly listening reminders and tips from Rhythm</string>
     <string name="service_rhythm_guard_alerts_desc">Safety alerts from Rhythm Guard</string>
