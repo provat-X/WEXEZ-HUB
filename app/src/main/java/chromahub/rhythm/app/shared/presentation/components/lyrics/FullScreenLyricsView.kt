@@ -142,6 +142,10 @@ fun FullScreenLyricsView(
     // Detect light or dark theme based on the app's theme background luminance
     val isDark = MaterialTheme.colorScheme.background.luminance() < 0.5f
     val baseBgColor = if (isDark) Color.Black else Color.White
+    val screenWidthDp = windowScreenWidthDp()
+    val screenHeightDp = windowScreenHeightDp()
+    // Match the reference video on landscape phones as well as larger tablets.
+    val isWideLayout = screenWidthDp >= 600 && screenWidthDp > screenHeightDp
     val textPrimaryColor = if (isDark) Color.White else Color.Black
     val textSecondaryColor = if (isDark) Color.White.copy(alpha = 0.65f) else Color.Black.copy(alpha = 0.65f)
     val glassBgColor = (if (isDark) Color.White else Color.Black).copy(alpha = 0.08f)
@@ -360,13 +364,44 @@ fun FullScreenLyricsView(
                         )
                     )
             )
+
+            // Cool blue ambient glow from the reference video. Keep it static and
+            // inexpensive to render so it adds atmosphere without extra animation work.
+            if (isWideLayout) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(
+                            Brush.horizontalGradient(
+                                colorStops = arrayOf(
+                                    0.0f to Color(0xFF06152D).copy(alpha = 0.22f),
+                                    0.42f to Color(0xFF0A3675).copy(alpha = 0.26f),
+                                    0.72f to Color(0xFF174F9A).copy(alpha = 0.32f),
+                                    1.0f to Color(0xFF07172F).copy(alpha = 0.20f)
+                                )
+                            )
+                        )
+                )
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(
+                            Brush.radialGradient(
+                                colors = listOf(
+                                    Color(0xFF3B82F6).copy(alpha = 0.24f),
+                                    Color(0xFF1D4ED8).copy(alpha = 0.12f),
+                                    Color.Transparent
+                                ),
+                                radius = 950f
+                            )
+                        )
+                )
+            }
         }
 
         // 2. MAIN LAYOUT CONTAINER
-        // 2. MAIN LAYOUT CONTAINER (Adaptive Tablet Split or Phone Stack)
-        val isTablet = windowScreenWidthDp() >= 600
-
-        if (isTablet) {
+        // Apple Music-inspired split player for landscape phones and tablets.
+        if (isWideLayout) {
             Row(
                 modifier = Modifier
                     .fillMaxSize()
@@ -377,7 +412,7 @@ fun FullScreenLyricsView(
                 // LEFT SIDE (40% width) - Metadata, controls, offset adjuster
                 Column(
                     modifier = Modifier
-                        .weight(0.4f)
+                        .weight(0.42f)
                         .fillMaxHeight()
                         .padding(end = 24.dp),
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -443,9 +478,10 @@ fun FullScreenLyricsView(
                                 fontWeight = FontWeight.Bold,
                                 color = textPrimaryColor
                             ),
+                            modifier = Modifier.fillMaxWidth(),
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
-                            textAlign = TextAlign.Center
+                            textAlign = TextAlign.Start
                         )
                         Spacer(modifier = Modifier.height(6.dp))
                         Text(
@@ -454,9 +490,10 @@ fun FullScreenLyricsView(
                                 fontWeight = FontWeight.Medium,
                                 color = textSecondaryColor
                             ),
+                            modifier = Modifier.fillMaxWidth(),
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
-                            textAlign = TextAlign.Center
+                            textAlign = TextAlign.Start
                         )
                     }
 
@@ -620,7 +657,7 @@ fun FullScreenLyricsView(
                 // RIGHT SIDE (60% width) - Lyrics scrolling area and settings/editor floating actions
                 Box(
                     modifier = Modifier
-                        .weight(0.6f)
+                        .weight(0.58f)
                         .fillMaxHeight()
                 ) {
                     val hasLyrics = lyrics?.hasLyrics() == true && lyrics.isErrorMessage().not()
@@ -657,6 +694,13 @@ fun FullScreenLyricsView(
                                         text = stringResource(R.string.fullscreenlyricsview_lyrics_arent_available_for),
                                         style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
                                         color = textPrimaryColor,
+                                        textAlign = TextAlign.Center
+                                    )
+                                    Spacer(modifier = Modifier.height(8.dp))
+                                    Text(
+                                        text = stringResource(R.string.lyrics_manual_add_hint),
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = textSecondaryColor,
                                         textAlign = TextAlign.Center
                                     )
                                     Spacer(modifier = Modifier.height(16.dp))
@@ -946,6 +990,13 @@ fun FullScreenLyricsView(
                                         color = textPrimaryColor,
                                         textAlign = TextAlign.Center
                                     )
+                                    Spacer(modifier = Modifier.height(8.dp))
+                                    Text(
+                                        text = stringResource(R.string.lyrics_manual_add_hint),
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = textSecondaryColor,
+                                        textAlign = TextAlign.Center
+                                    )
                                     Spacer(modifier = Modifier.height(16.dp))
                                     RhythmGroupedButton(
                                         size = RhythmButtonSize.Small
@@ -970,7 +1021,7 @@ fun FullScreenLyricsView(
                                             isFirst = false,
                                             isLast = false,
                                             icon = RhythmIcons.Player.Lyrics,
-                                            text = stringResource(R.string.lyrics_editor_short)
+                                            text = stringResource(R.string.lyrics_add_manually)
                                         )
                                         RhythmButtonWeighted(
                                             onClick = {
