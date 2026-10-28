@@ -2617,7 +2617,7 @@
     <string name="settings_album_hide_about">Скрыть раздел об альбоме</string>
     <string name="settings_album_hide_about_desc">Скрыть описание/раздел об альбоме на экране сведений об альбоме</string>
     <string name="settings_rhythm_guard_first_break_dialog_title">О перерывах прослушивания</string>
-    <string name="settings_rhythm_guard_first_break_dialog_message">WEXE HUB Guard планирует перерывы в прослушивании, чтобы защитить ваш слух, когда достигается допустимая суточная доза воздействия. Перерыв приостанавливает воспроизведение и блокирует элементы управления, чтобы ваши уши могли полноценно отдохнуть.\n\nВо время первого перерыва вы можете отключить Rhythm Guard. Однако во время последующих перерывов вы не сможете отключить Rhythm Guard до окончания времени перерыва. Вы всегда можете отключить его или изменить настройки вне активных перерывов.</string>
+    <string name="settings_rhythm_guard_first_break_dialog_message">WEXE HUB Guard планирует перерывы в прослушивании, чтобы защитить ваш слух, когда достигается допустимая суточная доза воздействия. Перерыв приостанавливает воспроизведение и блокирует элементы управления, чтобы ваши уши могли полноценно отдохнуть.\n\nВо время первого перерыва вы можете отключить WEXE HUB Guard. Однако во время последующих перерывов вы не сможете отключить WEXE HUB Guard до окончания времени перерыва. Вы всегда можете отключить его или изменить настройки вне активных перерывов.</string>
     <string name="settings_rhythm_guard_first_break_dialog_turn_off">Выключить WEXE HUB Guard</string>
     <string name="settings_rhythm_guard_first_break_dialog_start">Начать перерыв</string>
     <string name="settings_rhythm_guard_locked_during_break">Заблокировано во время перерыва</string>
