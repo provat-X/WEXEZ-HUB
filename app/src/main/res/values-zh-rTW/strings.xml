@@ -2544,7 +2544,7 @@
     <string name="error_no_document_app">找不到選資料夾用的文件檔選擇器。</string>
     <string name="settings_album_hide_about">隱藏專輯說明</string>
     <string name="settings_album_hide_about_desc">在專輯的詳細內容頁面隱藏專輯簡介</string>
-    <string name="settings_rhythm_guard_first_break_dialog_message">WEXE HUB Guard 會在每日聆聽時間到達上限時安排「聆聽休息」。為了確保耳朵確實得到充足休息，當進到聆聽休息時，會暫停播放中的音樂，並且暫時鎖定控制按鈕。\n\n在第一次聆聽休息時可以選擇是否關閉 Rhythm Guard。但是從隨後的休息時間起到結束以前，是無法關閉 Rhythm Guard 的。想關閉或改動設定的話，請在休息時間之外調整設定。</string>
+    <string name="settings_rhythm_guard_first_break_dialog_message">WEXE HUB Guard 會在每日聆聽時間到達上限時安排「聆聽休息」。為了確保耳朵確實得到充足休息，當進到聆聽休息時，會暫停播放中的音樂，並且暫時鎖定控制按鈕。\n\n在第一次聆聽休息時可以選擇是否關閉 WEXE HUB Guard。但是從隨後的休息時間起到結束以前，是無法關閉 WEXE HUB Guard 的。想關閉或改動設定的話，請在休息時間之外調整設定。</string>
     <string name="settings_rhythm_guard_first_break_dialog_turn_off">關閉 WEXE HUB Guard</string>
     <string name="settings_rhythm_guard_first_break_dialog_start">開始休息</string>
     <string name="settings_rhythm_guard_locked_during_break">休息時鎖定</string>
