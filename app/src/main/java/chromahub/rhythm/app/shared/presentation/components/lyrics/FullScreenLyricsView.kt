@@ -364,9 +364,12 @@ fun FullScreenLyricsView(
 
         // 2. MAIN LAYOUT CONTAINER
         // 2. MAIN LAYOUT CONTAINER (Adaptive Tablet Split or Phone Stack)
-        val isTablet = windowScreenWidthDp() >= 600
+        val screenWidthDp = windowScreenWidthDp()
+        val screenHeightDp = windowScreenHeightDp()
+        // Use the Apple Music-style split player on tablets and landscape phones.
+        val isWideLayout = screenWidthDp >= 600 && screenWidthDp > screenHeightDp
 
-        if (isTablet) {
+        if (isWideLayout) {
             Row(
                 modifier = Modifier
                     .fillMaxSize()
@@ -377,7 +380,7 @@ fun FullScreenLyricsView(
                 // LEFT SIDE (40% width) - Metadata, controls, offset adjuster
                 Column(
                     modifier = Modifier
-                        .weight(0.4f)
+                        .weight(0.42f)
                         .fillMaxHeight()
                         .padding(end = 24.dp),
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -443,9 +446,10 @@ fun FullScreenLyricsView(
                                 fontWeight = FontWeight.Bold,
                                 color = textPrimaryColor
                             ),
+                            modifier = Modifier.fillMaxWidth(),
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
-                            textAlign = TextAlign.Center
+                            textAlign = TextAlign.Start
                         )
                         Spacer(modifier = Modifier.height(6.dp))
                         Text(
@@ -454,9 +458,10 @@ fun FullScreenLyricsView(
                                 fontWeight = FontWeight.Medium,
                                 color = textSecondaryColor
                             ),
+                            modifier = Modifier.fillMaxWidth(),
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
-                            textAlign = TextAlign.Center
+                            textAlign = TextAlign.Start
                         )
                     }
 
@@ -620,7 +625,7 @@ fun FullScreenLyricsView(
                 // RIGHT SIDE (60% width) - Lyrics scrolling area and settings/editor floating actions
                 Box(
                     modifier = Modifier
-                        .weight(0.6f)
+                        .weight(0.58f)
                         .fillMaxHeight()
                 ) {
                     val hasLyrics = lyrics?.hasLyrics() == true && lyrics.isErrorMessage().not()
