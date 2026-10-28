@@ -2679,7 +2679,7 @@
     <string name="settings_artist_artwork_source_disabled">Desactivado</string>
     <string name="settings_artist_artwork_source_disabled_desc">No obtenga ni cargue imágenes para los artistas</string>
     <string name="settings_rhythm_guard_first_break_dialog_title">Acerca de las pausas para escuchar</string>
-    <string name="settings_rhythm_guard_first_break_dialog_message">WEXE HUB Guard programa pausas de escucha para proteger tu audición cuando alcanzas los límites de exposición diarios. Una pausa detiene la reproducción y bloquea los controles para que tus oídos descansen adecuadamente.\n\nDurante la primera pausa, puedes desactivar Rhythm Guard. Sin embargo, en las pausas posteriores, no podrás desactivarlo hasta que finalice la pausa. Siempre puedes desactivarlo o ajustar la configuración fuera de las pausas activas.</string>
+    <string name="settings_rhythm_guard_first_break_dialog_message">WEXE HUB Guard programa pausas de escucha para proteger tu audición cuando alcanzas los límites de exposición diarios. Una pausa detiene la reproducción y bloquea los controles para que tus oídos descansen adecuadamente.\n\nDurante la primera pausa, puedes desactivar WEXE HUB Guard. Sin embargo, en las pausas posteriores, no podrás desactivarlo hasta que finalice la pausa. Siempre puedes desactivarlo o ajustar la configuración fuera de las pausas activas.</string>
     <string name="settings_rhythm_guard_first_break_dialog_turn_off">Desactivar WEXE HUB Guard</string>
     <string name="settings_rhythm_guard_first_break_dialog_start">Inicio del descanso</string>
     <string name="settings_rhythm_guard_locked_during_break">Bloqueado durante la pausa de escucha</string>
