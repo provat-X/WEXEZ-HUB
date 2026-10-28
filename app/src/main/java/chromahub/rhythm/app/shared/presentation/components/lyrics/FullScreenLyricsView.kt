@@ -142,6 +142,10 @@ fun FullScreenLyricsView(
     // Detect light or dark theme based on the app's theme background luminance
     val isDark = MaterialTheme.colorScheme.background.luminance() < 0.5f
     val baseBgColor = if (isDark) Color.Black else Color.White
+    val screenWidthDp = windowScreenWidthDp()
+    val screenHeightDp = windowScreenHeightDp()
+    // Match the reference video on landscape phones as well as larger tablets.
+    val isWideLayout = screenWidthDp >= 600 && screenWidthDp > screenHeightDp
     val textPrimaryColor = if (isDark) Color.White else Color.Black
     val textSecondaryColor = if (isDark) Color.White.copy(alpha = 0.65f) else Color.Black.copy(alpha = 0.65f)
     val glassBgColor = (if (isDark) Color.White else Color.Black).copy(alpha = 0.08f)
@@ -360,15 +364,43 @@ fun FullScreenLyricsView(
                         )
                     )
             )
+
+            // Cool blue ambient glow from the reference video. Keep it static and
+            // inexpensive to render so it adds atmosphere without extra animation work.
+            if (isWideLayout) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(
+                            Brush.horizontalGradient(
+                                colorStops = arrayOf(
+                                    0.0f to Color(0xFF06152D).copy(alpha = 0.22f),
+                                    0.42f to Color(0xFF0A3675).copy(alpha = 0.26f),
+                                    0.72f to Color(0xFF174F9A).copy(alpha = 0.32f),
+                                    1.0f to Color(0xFF07172F).copy(alpha = 0.20f)
+                                )
+                            )
+                        )
+                )
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(
+                            Brush.radialGradient(
+                                colors = listOf(
+                                    Color(0xFF3B82F6).copy(alpha = 0.24f),
+                                    Color(0xFF1D4ED8).copy(alpha = 0.12f),
+                                    Color.Transparent
+                                ),
+                                radius = 950f
+                            )
+                        )
+                )
+            }
         }
 
         // 2. MAIN LAYOUT CONTAINER
-        // 2. MAIN LAYOUT CONTAINER (Adaptive Tablet Split or Phone Stack)
-        val screenWidthDp = windowScreenWidthDp()
-        val screenHeightDp = windowScreenHeightDp()
-        // Use the Apple Music-style split player on tablets and landscape phones.
-        val isWideLayout = screenWidthDp >= 600 && screenWidthDp > screenHeightDp
-
+        // Apple Music-inspired split player for landscape phones and tablets.
         if (isWideLayout) {
             Row(
                 modifier = Modifier
