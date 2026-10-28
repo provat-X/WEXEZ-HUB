@@ -596,7 +596,7 @@
     <string name="onboarding_gesture_tip_1">Les gestes de balayage fonctionnent dans les deux sens</string>
     <!-- Onboarding: Widgets Step -->
     <string name="onboarding_widgets_title">Widgets de lancement</string>
-    <string name="onboarding_widgets_desc">Ajoutez les widgets « WEXE HUB Cookie » et « Stats » à votre lanceur pour contrôler votre musique d\'un seul coup d\'œil. Choisissez la fonction associée à chaque coin du « Rhythm Cookie » et les statistiques que le widget affiche.</string>
+    <string name="onboarding_widgets_desc">Ajoutez les widgets « WEXE HUB Cookie » et « Stats » à votre lanceur pour contrôler votre musique d\'un seul coup d\'œil. Choisissez la fonction associée à chaque coin du « WEXE HUB Cookie » et les statistiques que le widget affiche.</string>
     <string name="onboarding_widget_artist">Afficher le nom de l\'artiste</string>
     <string name="onboarding_widget_artist_desc">Afficher l\'artiste actuel dans le widget</string>
     <string name="onboarding_widget_album">Afficher le nom de l\'album</string>
@@ -2592,7 +2592,7 @@
     <string name="updates_channel_nightly_desc">Recevez les versions « nightly » à la pointe de la technologie, compilées à partir de la branche principale.</string>
     <string name="error_no_document_app">Aucun sélecteur de documents système n\'a été trouvé pour sélectionner un dossier.</string>
     <string name="settings_rhythm_guard_first_break_dialog_title">À propos des pauses d\'écoute</string>
-    <string name="settings_rhythm_guard_first_break_dialog_message">WEXE HUB Guard programme des pauses d\'écoute pour protéger votre audition lorsque les limites d\'exposition quotidiennes sont atteintes. Une pause interrompt la lecture et verrouille les commandes afin de garantir à vos oreilles un repos adéquat.\n\nPour cette première pause, vous pouvez choisir de désactiver Rhythm Guard. Cependant, lors des pauses suivantes, vous ne pourrez pas désactiver Rhythm Guard avant la fin de la pause. Vous pouvez à tout moment le désactiver ou modifier ses paramètres en dehors des pauses actives.</string>
+    <string name="settings_rhythm_guard_first_break_dialog_message">WEXE HUB Guard programme des pauses d\'écoute pour protéger votre audition lorsque les limites d\'exposition quotidiennes sont atteintes. Une pause interrompt la lecture et verrouille les commandes afin de garantir à vos oreilles un repos adéquat.\n\nPour cette première pause, vous pouvez choisir de désactiver WEXE HUB Guard. Cependant, lors des pauses suivantes, vous ne pourrez pas désactiver WEXE HUB Guard avant la fin de la pause. Vous pouvez à tout moment le désactiver ou modifier ses paramètres en dehors des pauses actives.</string>
     <string name="settings_rhythm_guard_first_break_dialog_turn_off">Désactiver WEXE HUB Guard</string>
     <string name="settings_rhythm_guard_first_break_dialog_start">Début de la pause</string>
     <string name="settings_rhythm_guard_locked_during_break">Verrouillé pendant la pause d\'écoute</string>
