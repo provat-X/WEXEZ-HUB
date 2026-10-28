@@ -2634,7 +2634,7 @@
     <string name="settings_artist_artwork_source_disabled">Dinonaktifkan</string>
     <string name="settings_artist_artwork_source_disabled_desc">Jangan ambil atau muat gambar untuk artis</string>
     <string name="settings_rhythm_guard_first_break_dialog_title">Tentang Jeda Mendengarkan</string>
-    <string name="settings_rhythm_guard_first_break_dialog_message">WEXE HUB Guard menjadwalkan jeda mendengarkan untuk melindungi pendengaran Anda ketika batas paparan harian tercapai. Jeda akan menjeda pemutaran dan mengunci kontrol agar telinga Anda memperoleh waktu istirahat yang memadai.\n\nUntuk jeda pertama ini, Anda dapat memilih untuk menonaktifkan Rhythm Guard. Namun, selama jeda berikutnya, Anda tidak dapat menonaktifkan Rhythm Guard hingga waktu jeda berakhir. Anda selalu dapat menonaktifkannya atau menyesuaikan pengaturan di luar jeda aktif.</string>
+    <string name="settings_rhythm_guard_first_break_dialog_message">WEXE HUB Guard menjadwalkan jeda mendengarkan untuk melindungi pendengaran Anda ketika batas paparan harian tercapai. Jeda akan menjeda pemutaran dan mengunci kontrol agar telinga Anda memperoleh waktu istirahat yang memadai.\n\nUntuk jeda pertama ini, Anda dapat memilih untuk menonaktifkan WEXE HUB Guard. Namun, selama jeda berikutnya, Anda tidak dapat menonaktifkan WEXE HUB Guard hingga waktu jeda berakhir. Anda selalu dapat menonaktifkannya atau menyesuaikan pengaturan di luar jeda aktif.</string>
     <string name="settings_rhythm_guard_first_break_dialog_turn_off">Nonaktifkan WEXE HUB Guard</string>
     <string name="settings_rhythm_guard_first_break_dialog_start">Mulai Jeda</string>
     <string name="settings_rhythm_guard_locked_during_break">Terkunci selama jeda mendengarkan</string>
