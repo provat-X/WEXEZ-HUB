@@ -2545,7 +2545,7 @@
     <string name="settings_album_hide_about">隐藏专辑的“关于”部分</string>
     <string name="settings_album_hide_about_desc">隐藏专辑详情页的“描述/关于”部分</string>
     <string name="settings_rhythm_guard_first_break_dialog_title">关于听歌间隔</string>
-    <string name="settings_rhythm_guard_first_break_dialog_message">当你的每日听音暴露时长达到限值时，WEXE HUB Guard 会自动安排听音休息时段以保护听力。休息模式下设备会暂停播放，并锁定操作控件，确保你的耳朵得到充足休整。\n \n首次弹出休息提醒时，你可以选择关闭 Rhythm Guard 功能。但后续所有自动休息时段内，你无法关闭该功能，必须等休息时长结束才能操作。非强制休息阶段，你随时可以关闭 Rhythm Guard 或调整相关设置。</string>
+    <string name="settings_rhythm_guard_first_break_dialog_message">当你的每日听音暴露时长达到限值时，WEXE HUB Guard 会自动安排听音休息时段以保护听力。休息模式下设备会暂停播放，并锁定操作控件，确保你的耳朵得到充足休整。\n \n首次弹出休息提醒时，你可以选择关闭 WEXE HUB Guard 功能。但后续所有自动休息时段内，你无法关闭该功能，必须等休息时长结束才能操作。非强制休息阶段，你随时可以关闭 WEXE HUB Guard 或调整相关设置。</string>
     <string name="settings_rhythm_guard_first_break_dialog_turn_off">关闭 WEXE HUB Guard</string>
     <string name="settings_rhythm_guard_first_break_dialog_start">开始休息</string>
     <string name="settings_rhythm_guard_locked_during_break">在听歌休息期间锁定</string>
